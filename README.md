@@ -27,8 +27,38 @@ You can extend your project further by:
 Add a new feature
 Refactor your code
 Port to Github pages
+
 Attributions
 *If you used any code, ideas, images, or resources from another person or group of people, tell us about it here. Make sure it is in the public domain, has a license that allows you to use it, or is one of your own.
+
+All images were compressed
+All except crystal image was cropped
+Character image and ship image had backgrounds removed
+
+Home Screen Image: https://unsplash.com/photos/N3BQHYOVq5E
+
+Cockpit Image: https://unsplash.com/photos/kjqTlMHLci4
+Character Image: https://opengameart.org/content/rpg-character-sprites
+
+Mars Image: https://opengameart.org/content/rocky-desert-landscape-layered-looping
+Rock Image: https://opengameart.org/content/asteroid-spritesheet
+Crystal Image (*not cropped): https://opengameart.org/node/79572
+
+Space Image: https://opengameart.org/content/ethereal-night-pixel-art
+Asteroid Image: https://opengameart.org/content/asteroid-spritesheet
+
+Earth Image: https://unsplash.com/photos/vhSz50AaFAs
+
+Flower Image: https://unsplash.com/photos/JD7QtXjOy9k
+
+Ship Image: https://www.freepik.com/free-vector/variety-colorful-ufo_797028.htm#query=spaceship%20sprite&position=5&from_view=keyword&track=ais
+
+
+
+
+
+
+
 
 Add here if applicable
 File Overview

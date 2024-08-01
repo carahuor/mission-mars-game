@@ -41,15 +41,40 @@ let bRestore;
 //Variable for end screen
 let bAgain;
 
+//Variables for Images
+let homeBG, dialogueBG, marsBG, spaceBG, earthBG, flowerBG;
+let shipImg, rockImg, crystalImg, asteroidImg;
+
 /* PRELOAD LOADS FILES */
 function preload() {
-
+  homeBG = loadImage("assets/homeBG.png");
+  dialogueBG  = loadImage("assets/dialogue.png");
+  marsBG = loadImage("assets/marsBG.png");
+  spaceBG = loadImage("assets/spaceBG.png");
+  earthBG = loadImage("assets/earthBG.png");
+  flowerBG = loadImage("assets/flowerBG.png");
+  shipImg = loadImage("assets/ship.png");
+  rockImg = loadImage("assets/rock.png");
+  crystalImg = loadImage("assets/crystal.png");
+  asteroidImg = loadImage("assets/asteroid.png");
 }
 
 /* SETUP RUNS ONCE */
 function setup() {
   createCanvas(400, 400);
-  background(40);
+
+ //resize images
+  homeBG.resize(width, height);
+  dialogueBG.resize(width, height);
+  marsBG.resize(width, height);
+  spaceBG.resize(width, height);
+  earthBG.resize(width, height);
+  flowerBG.resize(width, height);
+
+  shipImg.resize(70,0);
+  rockImg.resize(68,0);
+  asteroidImg.resize(68,0);
+  crystalImg.resize(60,0);
 
   //Variables for Home Screen
   button = new Group();
@@ -79,39 +104,40 @@ function setup() {
   w = width / 2;
 
   //1st Column of Rocks
-  r1 = new rock.Sprite(-100, -100);
-  r2 = new rock.Sprite(-100, -100);
-  r3 = new rock.Sprite(-100, -100);
-  r4 = new rock.Sprite(-100, -100);
+  r1 = new rock.Sprite(asteroidImg, -100, -100);
+  r2 = new rock.Sprite(asteroidImg, -100, -100);
+  r3 = new rock.Sprite(asteroidImg, -100, -100);
+  r4 = new rock.Sprite(asteroidImg, -100, -100);
 
   //2nd Column of Rocks
-  r5 = new rock.Sprite(-100, -100);
-  r6 = new rock.Sprite(-100, -100);
-  r7 = new rock.Sprite(-100, -100);
+  r5 = new rock.Sprite(asteroidImg, -100, -100);
+  r6 = new rock.Sprite(asteroidImg, -100, -100);
+  r7 = new rock.Sprite(asteroidImg, -100, -100);
 
   //3rd Column of Rocks
-  r8 = new rock.Sprite(-100, -100);
-  r9 = new rock.Sprite(-100, -100);
-  r10 = new rock.Sprite(-100, -100);
+  r8 = new rock.Sprite(asteroidImg, -100, -100);
+  r9 = new rock.Sprite(asteroidImg, -100, -100);
+  r10 = new rock.Sprite(asteroidImg, -100, -100);
 
   //4th Column of Rocks
-  r11 = new rock.Sprite(-100, -100);
-  r12 = new rock.Sprite(-100, -100);
-  r13 = new rock.Sprite(-100, -100);
+  r11 = new rock.Sprite(asteroidImg, -100, -100);
+  r12 = new rock.Sprite(asteroidImg, -100, -100);
+  r13 = new rock.Sprite(asteroidImg, -100, -100);
 
   //5th Column of Rocks
-  r14 = new rock.Sprite(-100, -100);
-  r15 = new rock.Sprite(-100, -100);
-  r16 = new rock.Sprite(-100, -100);
-  r17 = new rock.Sprite(-100, -100);
+  r14 = new rock.Sprite(asteroidImg, -100, -100);
+  r15 = new rock.Sprite(asteroidImg, -100, -100);
+  r16 = new rock.Sprite(asteroidImg, -100, -100);
+  r17 = new rock.Sprite(asteroidImg, -100, -100);
 
   //6th Column of Rocks
-  r18 = new rock.Sprite(-100, -100);
-  r19 = new rock.Sprite(-100, -100);
-  r20 = new rock.Sprite(-100, -100);
-  r21 = new rock.Sprite(-100, -100);
+  r18 = new rock.Sprite(asteroidImg, -100, -100);
+  r19 = new rock.Sprite(asteroidImg, -100, -100);
+  r20 = new rock.Sprite(asteroidImg, -100, -100);
+  r21 = new rock.Sprite(asteroidImg, -100, -100);
 
-  ship = new Sprite(-100, -100, 50);
+  ship = new Sprite(shipImg, -100, -100, 50);
+  ship.rotationLock = true;
 
 
   //Variables for Mars Game
@@ -122,32 +148,32 @@ function setup() {
   //Crystals
   crystal = new Group();
   crystal.collider = "k";
-  c1 = new crystal.Sprite(-200,-200);
-  c2 = new crystal.Sprite(-200,-200);
-  c3 = new crystal.Sprite(-200,-200);
+  c1 = new crystal.Sprite(crystalImg, -200,-200);
+  c2 = new crystal.Sprite(crystalImg, -200,-200);
+  c3 = new crystal.Sprite(crystalImg, -200,-200);
 
   //1st Column of Rocks
-  mR1 = new rock.Sprite(-300, -300);
-  mR2 = new rock.Sprite(-300, -300);
-  mR3 = new rock.Sprite(-300, -300);
+  mR1 = new rock.Sprite(rockImg, -300, -300);
+  mR2 = new rock.Sprite(rockImg, -300, -300);
+  mR3 = new rock.Sprite(rockImg, -300, -300);
 
   //2nd Column of Rocks
-  mR4 = new rock.Sprite(-300, -300);
-  mR5 = new rock.Sprite(-300, -300);
+  mR4 = new rock.Sprite(rockImg, -300, -300);
+  mR5 = new rock.Sprite(rockImg, -300, -300);
 
   //3rd Column of Rocks
-  mR6 = new rock.Sprite(-300, -300);
-  mR7 = new rock.Sprite(-300, -300);
-  mR8 = new rock.Sprite(-300, -300);
-  mR9 = new rock.Sprite(-300, -300);
+  mR6 = new rock.Sprite(rockImg, -300, -300);
+  mR7 = new rock.Sprite(rockImg, -300, -300);
+  mR8 = new rock.Sprite(rockImg, -300, -300);
+  mR9 = new rock.Sprite(rockImg, -300, -300);
 
   //4th Column of Rocks
-  mR10 = new rock.Sprite(-300, -300);
-  mR11 = new rock.Sprite(-300, -300);
-  mR12 = new rock.Sprite(-300, -300);
+  mR10 = new rock.Sprite(rockImg, -300, -300);
+  mR11 = new rock.Sprite(rockImg, -300, -300);
+  mR12 = new rock.Sprite(rockImg, -300, -300);
 
   //5th Column of Rocks
-  mR13 = new rock.Sprite(-300, -300);
+  mR13 = new rock.Sprite(rockImg, -300, -300);
 
 
   //End Screen
@@ -156,6 +182,9 @@ function setup() {
 
 /* DRAW LOOP REPEATS */
 function draw() {
+
+  //allSprites.debug = true;
+
   noStroke();
   if (screen == 0) {
     showHomeScreen();
@@ -188,10 +217,11 @@ function draw() {
 
 /* FUNCTIONS */
 function showHomeScreen() {
-  background(40);
+  image(homeBG,0,0);
   fill(255);
-  bPlay.pos = { x: width / 2, y: height / 2 + 100 };
+  bPlay.pos = { x: width / 2, y: height / 2 + 150 };
   bPlay.text = "Play";
+  bPlay.color = "#b8855c";
   if (bPlay.mouse.presses()) {
     bPlay.pos = { x: -100, y: 100 };
     screen++;
@@ -199,10 +229,9 @@ function showHomeScreen() {
 }
 
 function showDialogueScreen() {
+  image(dialogueBG,0,0);
   textAlign(CENTER);
   textSize(15);
-
-  background(40);
   fill(255);
   rect(20, 20, width - 40, 100, 10, 10, 10, 10);
   text("Press 'space' to continue", width / 2, 140);
@@ -245,7 +274,7 @@ function wallShip(){
 }
 
 function showMarsScreen() {
-  background(40);
+  image(marsBG,0,0);
   fill(255);
   textAlign(LEFT);
   textSize(10);
@@ -258,6 +287,7 @@ function showMarsScreen() {
   bRestore.h = 40;
   bRestore.pos = {x: width - 50, y:height - 30};
   bRestore.text = "Reset";
+  bRestore.color = "#b8855c";
 
   if (bRestore.mouse.presses()){
     restoreMars();
@@ -438,7 +468,7 @@ function hideMars() {
 }
 
 function showAsteroidScreen() {
-  background(40);
+  image(spaceBG,0,0);
   fill(255);
   textAlign(LEFT);
   textSize(10);
@@ -504,11 +534,11 @@ function restoreAsteroids() {
 }
 
 function showEarthScreen() {
-  background(40);
+  image(earthBG,0,0);
   fill(255);
   textAlign(CENTER);
   textSize(20);
-  text("Click Earth to return home", width / 2, height / 2 - 100);
+  text("Click Earth to return home", width / 2, 50);
   if (mouseIsPressed) {
     ship.pos = { x: -100, y: -100 };
     r18.pos = { x: -100, y: -100 };
@@ -520,13 +550,15 @@ function showEarthScreen() {
 }
 
 function showEndScreen() {
-  background(40);
+  image(flowerBG,0,0);
   bAgain.pos = { x: width / 2, y: height / 2 + 100 };
+  bAgain.color = color(255);
+  fill(0);
   bAgain.text = "Play Again";
   fill(255);
   textAlign(CENTER);
-  textSize(20);
-  text("You did it!", width / 2, 100);
+  textSize(10);
+  text("These are known as the Star of Bethlehem flowers and symbolize hope.", width/2, height-15);
   if (bAgain.mouse.presses()) {
     bAgain.pos = { x: -100, y: -100 };
     screen = 0;
