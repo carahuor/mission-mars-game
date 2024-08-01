@@ -9,8 +9,6 @@ let bPlay;
 //Variables for Intro Dialogue
 let first = true;
 let sayCount = 0;
-let choice1;
-let choice2;
 let speech = ["Hi there, astronaut! I'm Sky,\na flight controller of Mission: Mars.\nI'll be helping you throught the mission.",
   "\nYou're the first person to set foot on Mars! \nIsn't that exciting?",
   "So, you'll need to move your spaceship with \nthe arrow keys to collect crystals. Break \n3 boulders maximum by clicking them with \nyour mouse. (Challenge: Break only 1 boulder!)",
@@ -29,8 +27,6 @@ let w;
 let r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18, r19, r20, r21;
 
 let ship;
-let wall;
-//let earth;
 
 //Variables for Mars Game
 let mStarted = false;
@@ -63,22 +59,7 @@ function setup() {
 
   bPlay = new button.Sprite(-100, -100);
 
-
-  //Variables from Dialogue Screen
-  choice1 = new button.Sprite(-100, -100);
-  choice2 = new button.Sprite(-100, -100);
-
   //Variables for Asteroid Game
-
-  //Wall Group
-  wall = new Group();
-  wall.collider = "s";
-
-  //Wall Sprites
-  new wall.Sprite(0, -1, canvas.width, 1);
-  new wall.Sprite(0, canvas.height, canvas.width, canvas.height + 1);
-  new wall.Sprite(0, -1, 1, canvas.height);
-  new wall.Sprite(height, -1, 1, canvas.height);
 
   //Value for spacing between rocks
   s = 20;
@@ -131,10 +112,6 @@ function setup() {
   r21 = new rock.Sprite(-100, -100);
 
   ship = new Sprite(-100, -100, 50);
-
-
-  //earth = new Sprite(-200,200, 50, "k");
-  //earth.color = new color(255);
 
 
   //Variables for Mars Game
@@ -251,6 +228,22 @@ function showDialogueScreen() {
 
 }
 
+//keeps ship on screen 
+function wallShip(){
+  if (ship.y < ship.r){
+    ship.y = ship.r;
+  } else if (ship.y > height-ship.r) {
+    ship.y = height-ship.r;
+  }
+
+  if (ship.x < ship.r){
+    ship.x = ship.r;
+  } else if (ship.x > width-ship.r){
+    ship.x = width-ship.r;
+  }
+
+}
+
 function showMarsScreen() {
   background(40);
   fill(255);
@@ -271,6 +264,9 @@ function showMarsScreen() {
     mCount = 0;
     cCount = 0;
   }
+
+  //keeps ship on screen
+  wallShip();
 
   //Moves screens when player destroys max 3 boulders and collected all 3 crystals
   if (cCount == 3 && mCount <= 3){
@@ -451,6 +447,9 @@ function showAsteroidScreen() {
   //Move ship with mouse
   ship.moveTowards(35, mouse.y, 1);
 
+   //keeps ship on screen
+  wallShip();
+
   //Resets to beginning when ship hits a rock
   if (ship.collides(rock)) {
     restoreAsteroids();
@@ -502,8 +501,6 @@ function restoreAsteroids() {
   r19.pos = { x: 6 * w + 100, y: h2 };
   r20.pos = { x: 6 * w + 100, y: h4 };
   r21.pos = { x: 6 * w + 100, y: h5 };
-
-  //earth.pos = {x:9*w+100,y:h3};
 }
 
 function showEarthScreen() {
