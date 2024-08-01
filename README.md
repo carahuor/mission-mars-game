@@ -1,4 +1,9 @@
-# p5.js
+# Mission: Mars
+Mission: Mars is a space-themed game that I made during the Girls Who Code Summer Immersion Program '23. 
+
+Summer Immersion Program participants were given the theme: "What Hope Means to Me."
+
+p5.js
 
 This is the Template Repl for p5.js.
 
