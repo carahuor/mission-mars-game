@@ -1,7 +1,6 @@
 
 # Starter Code
-This branch is meant to display the starter code used to build this project.
-Comments on the JavaScript and HTML files distinguish sources of the starter code.
+This branch is meant to display the starter code used to build this project. Comments on the JavaScript and HTML files distinguish sources of the starter code. Files with 0 indicate the starter code files.
 
 ## Replit.com p5.js Starter Code
 p5.js
