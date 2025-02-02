@@ -1,7 +1,7 @@
 # Mission: Mars
 Mission: Mars is a storytelling game that I made during the Girls Who Code Summer Immersion Program '23. 
 
-Live Demo: https://carahuor.github.io/mars-game/
+Live Demo: [https://carahuor.github.io/mars-game/](https://carahuor.github.io/mission-mars-game/)
 
 p5.js
 
